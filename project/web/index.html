@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявки в IT-отдел</title>
+    <meta name="description" content="Заявки в IT-отдел вуза: создание, статус, удаление">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <p class="logo">IT-отдел</p>
+        <nav>
+            <ul>
+                <li><a href="#new-ticket">Новая заявка</a></li>
+                <li><a href="#tickets">Все заявки</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="alert" id="alert" role="alert" hidden>
+            <p id="alert-text"></p>
+            <button type="button" class="alert-close" id="alert-close" aria-label="Закрыть">×</button>
+        </div>
+
+        <section class="new-ticket" id="new-ticket">
+            <h1>Заявки в IT-отдел</h1>
+            <p class="lead">Опишите проблему, и специалист IT-отдела возьмет ее в работу.</p>
+
+            <form id="ticket-form" class="ticket-form" novalidate>
+                <label class="field field-wide">
+                    <span>Что случилось</span>
+                    <input type="text" name="title" maxlength="200" placeholder="Например: не работает проектор в 305" required>
+                </label>
+
+                <label class="field field-wide">
+                    <span>Подробности</span>
+                    <textarea name="description" rows="3" placeholder="Где, когда, что уже пробовали"></textarea>
+                </label>
+
+                <label class="field">
+                    <span>Автор</span>
+                    <select name="user_id" id="user-select" required>
+                        <option value="">Загрузка...</option>
+                    </select>
+                </label>
+
+                <label class="field">
+                    <span>Категория</span>
+                    <select name="category_id" id="category-select" required>
+                        <option value="">Загрузка...</option>
+                    </select>
+                </label>
+
+                <button type="submit" class="btn" id="submit-btn">Создать заявку</button>
+            </form>
+        </section>
+
+        <section class="tickets" id="tickets">
+            <div class="tickets-head">
+                <h2>Все заявки</h2>
+                <p class="counter" id="counter"></p>
+            </div>
+
+            <p class="state" id="state">Загрузка заявок...</p>
+            <ul class="ticket-list" id="ticket-list"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026. Заявки в IT-отдел вуза</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
